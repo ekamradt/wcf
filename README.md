@@ -31,7 +31,7 @@ curl --header "Content-Type: application/json" \
   --data '{ "employeeId": 9999, "employeeName": "Elmo Washington", "model": "Pizza Brand", "purchaseDate": "20200101" }' \
   http://localhost:8080/api/cellPhone
 ```  
-* Update Cell Phone Example : PUT http://localhost:8080/api/cellPhone/<ID>
+* Update Cell Phone Example : PUT http://localhost:8080/api/cellPhone/\<ID>
 ```
 curl --header "Content-Type: application/json" \
     --request PUT \
@@ -39,7 +39,7 @@ curl --header "Content-Type: application/json" \
     http://localhost:8080/api/cellPhone
 ```
 
-* Fetch CellPhone Example : GET http://localhost:8080/api/cellPhone/<ID>
+* Fetch CellPhone Example : GET http://localhost:8080/api/cellPhone/{ID}
 ```
 curl --header "Content-Type: application/json" \
   --request GET \
