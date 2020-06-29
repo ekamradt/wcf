@@ -1,4 +1,4 @@
-# Interview Code Request
+# Interview Code Request 
 
 ### Overview
 When you run the application the Report prints to the console.
@@ -24,14 +24,22 @@ spent some hours on this and haven't written unit/mocked tests yet.  I will if a
 * You can also get the report with the URL 
   * http://localhost:8080/api/report
   * http://localhost:8080/api/report/json
-* You can add a CellPhone with POST http://localhost:8080/api/cellPhone/<ID>
+* Add Cell Phone Example : POST http://localhost:8080/api/cellPhone
 ``` 
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{ "employeeId": 9999, "employeeName": "Elmo Washington", "model": "Pizza Brand", "purchaseDate": "20200101" }' \
   http://localhost:8080/api/cellPhone
 ```  
-* You can fetch a CellPhone with GET http://localhost:8080/api/cellPhone
+* Update Cell Phone Example : PUT http://localhost:8080/api/cellPhone/<ID>
+```
+curl --header "Content-Type: application/json" \
+    --request PUT \
+    --data '{ "employeeId": 9999, "employeeName": "Elmo Johnson Washington", "model": "Pizza Brand Phone", "purchaseDate": "20200101" }' \
+    http://localhost:8080/api/cellPhone
+```
+
+* Fetch CellPhone Example : GET http://localhost:8080/api/cellPhone/<ID>
 ```
 curl --header "Content-Type: application/json" \
   --request GET \
@@ -39,6 +47,7 @@ curl --header "Content-Type: application/json" \
 ```
 
 ### Build & Run Jar
+
 mvn clean package spring-boot:repackage
 
 java -jar ./target/wcf-0.0.1-SNAPSHOT.jar

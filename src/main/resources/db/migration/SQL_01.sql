@@ -41,8 +41,8 @@ AS
     ,       P.employee_name
     ,       P.model
     ,       P.purchase_date
-    ,       SUM(M.total_minutes)  AS minutes_usage
-    ,       SUM(M.total_data)     AS data_usage
+    ,       SUM(COALESCE(M.total_minutes, 0))  AS minutes_usage
+    ,       SUM(COALESCE(M.total_data, 0))     AS data_usage
     --
     FROM    cell_phone P
             LEFT OUTER JOIN cell_usage_month M

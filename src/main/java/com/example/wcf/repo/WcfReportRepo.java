@@ -1,6 +1,7 @@
 package com.example.wcf.repo;
 
 import com.example.wcf.report.WcfReport;
+import com.example.wcf.report.WcfReportDetail;
 import com.example.wcf.report.WcfReportHeader;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,9 +33,12 @@ public class WcfReportRepo {
     public WcfReport getReport() {
         final Iterable<WcfReportHeader> all = headerRepo.findAll();
         final Optional<WcfReportHeader> first = Lists.newArrayList(all).stream().findFirst();
-        return first.map(wcfReportHeader -> new WcfReport()
-                .setHeader(wcfReportHeader)
-                .setDetails(Lists.newArrayList(detailRepo.findAll())))
+        return first.map(wcfReportHeader -> {
+            final Iterable<WcfReportDetail> details = detailRepo.findAll();
+            return new WcfReport()
+                    .setHeader(wcfReportHeader)
+                    .setDetails(Lists.newArrayList(details));
+        })
                 .orElse(null);
     }
 }

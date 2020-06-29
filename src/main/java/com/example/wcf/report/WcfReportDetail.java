@@ -36,13 +36,20 @@ public class WcfReportDetail implements WcfReportLine {
 
     @Override
     public List<String> reportLine() {
-        return new ArrayList<String>() {{
-            add(employeeId.toString());
-            add(employeeName);
-            add(model);
-            add(purchaseDate.toString());
-            add(minutesUsage.toString());
-            add(dataUsage.toString());
-        }};
+        final List<String> list = new ArrayList<String>();
+
+        list.add(employeeId.toString());
+        list.add(employeeName);
+        list.add(model);
+        if (purchaseDate != null) {
+            list.add(purchaseDate.toString());
+        }
+        if (minutesUsage != null){
+            list.add(minutesUsage.toString());
+        }
+        if (dataUsage != null){
+            list.add(dataUsage.toString());
+        }
+        return list;
     }
 }
