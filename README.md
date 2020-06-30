@@ -1,7 +1,8 @@
 # Interview Code Request 
 
 ### Overview
-When you run the application the Report prints to the console.
+When you run the application the Report prints to the console. The secret of the
+report is a database view, in the file src/main/resources/db/migration/SQL_01.sql
 
 The application stays active and allows REST queries to fetch the report and get and add cell 
 phones. If this were a real app, we'd add CRUD for cell phones and their usage, as well as, search filters
